@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JavaScript Form</title>
+    <style>
+      /* Add some initial styling for the label */
+      label {
+        transition: color 0.3s; /* Add a smooth color transition effect */
+        cursor: pointer; /* Change cursor to pointer on hover */
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      // Function to handle form submission
+      function handleSubmit(event) {
+        event.preventDefault(); // Prevents the default form submission behavior
+
+        // Access the input value
+        var inputValue = document.getElementById("inputField").value;
+
+        // Do something with the input value (e.g., log it to the console)
+        console.log("Submitted value:", inputValue);
+      }
+
+      // Function to handle label hover
+      function handleLabelHover() {
+        // Change label text color to green on hover
+        this.style.color = "orange";
+      }
+
+      // Creating the form dynamically using DOM manipulation
+      var form = document.createElement("form");
+      form.addEventListener("submit", handleSubmit);
+
+      // Creating the label for the input
+      var label = document.createElement("label");
+      label.textContent = "What is your name?";
+      label.addEventListener("mouseover", handleLabelHover);
+      label.addEventListener("mouseout", function () {
+        // Reset label text color when mouse leaves
+        this.style.color = "";
+      });
+
+      // Creating the text input
+      var inputField = document.createElement("input");
+      inputField.type = "text";
+      inputField.id = "inputField";
+      inputField.placeholder = "Enter something...";
+
+      // Creating the submit button
+      var submitButton = document.createElement("button");
+      submitButton.type = "submit";
+      submitButton.textContent = "Submit";
+
+      // Appending the label, input, and button to the form
+      form.appendChild(label);
+      form.appendChild(inputField);
+      form.appendChild(submitButton);
+
+      // Appending the form to the body
+      document.body.appendChild(form);
+    </script>
+  </body>
+</html>
