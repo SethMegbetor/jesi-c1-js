@@ -78,3 +78,33 @@ function calculateTip() {
 }
 
 document.getElementById("calculateBtn").addEventListener("click", calculateTip);
+
+
+// Event listeners for toggling between custom tip and service rating inputs
+const customTipRadio = document.getElementById("customTip");
+const serviceRatingRadio = document.getElementById("serviceRating");
+const customTipInput = document.getElementById("customTipInput");
+const serviceRatingInput = document.getElementById("serviceRatingInput");
+
+customTipRadio.addEventListener("change", function () {
+  if (this.checked) {
+    customTipInput.style.display = "block";
+    serviceRatingInput.style.display = "none";
+  }
+});
+
+serviceRatingRadio.addEventListener("change", function () {
+  if (this.checked) {
+    serviceRatingInput.style.display = "block";
+    customTipInput.style.display = "none";
+  }
+});
+
+// Initially show/hide inputs based on selected radio button
+if (customTipRadio.checked) {
+  customTipInput.style.display = "block";
+  serviceRatingInput.style.display = "none";
+} else if (serviceRatingRadio.checked) {
+  serviceRatingInput.style.display = "block";
+  customTipInput.style.display = "none";
+}
